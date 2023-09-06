@@ -7,16 +7,18 @@ low = 0
 high = len(mylist)
 num = int(input("What number are you looking for: "))
 
+
 def search(low, high):
     if high < low:
         return "is not found..."
-    mid = int((low + high)/2)
+    mid = int((low + high) / 2)
 
-    if (mylist[mid] > num):
-        return search(low, mid-1)
-    elif (mylist[mid] < num):
-        return search(mid+1, high)
+    if mylist[mid] > num:
+        return search(low, mid - 1)
+    elif mylist[mid] < num:
+        return search(mid + 1, high)
     else:
         return mid
 
-print(num, "is at postion", search(low,high))
+
+print(num, "is at position", search(low, high))
