@@ -1,16 +1,22 @@
-# This is a sample Python script.
+mylist = [1, 8, 15, 22, 29, 36, 43, 50, 57, 64, 71, 78, 85, 92, 99, 106, 113, 120, 127, 134, 141, 148, 155, 162, 169,
+          176, 183, 190, 197, 204, 211, 218, 225, 232, 239, 246, 253, 260, 267, 274, 281, 288, 295, 302, 309, 316, 323,
+          330, 337, 344, 351, 358, 365, 372, 379, 386, 393, 400, 407, 414, 421, 428, 435, 442, 449, 456, 463, 470, 477,
+          484, 491, 498]
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+low = 0
+high = len(mylist)
+num = int(input("What number are you looking for: "))
 
+def search(low, high):
+    if high < low:
+        return "is not found..."
+    mid = int((low + high)/2)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+    if (mylist[mid] > num):
+        return search(low, mid-1)
+    elif (mylist[mid] < num):
+        return search(mid+1, high)
+    else:
+        return mid
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(num, "is at postion", search(low,high))
